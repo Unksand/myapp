@@ -1,0 +1,49 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px; /* Fixed padding */
+}
+
+.logo {
+  width: 150px; /* Adjust size as needed */
+  margin-bottom: 20px; /* Space below the logo */
+}
+
+.login-container h2,
+.login-container p {
+  text-align: center;
+}
+
+.login-container ion-item {
+  width: 100%; /* Ensure input takes up full width */
+  margin-bottom: 20px; /* Add gap between each input */
+}
+
+.login-container ion-input {
+  width: 100%; /* Ensure input stretches fully */
+  padding: 2px; /* Increase padding inside input field */
+}
+
+ion-label {
+  margin-bottom: 5px; /* Add space between label and input field */
+  font-size: 12px; /* Adjust the font size of the label */
+}
+
+ion-item {
+  --highlight-color: #c60a0a; /* Optional: Change the color of focused input */
+}
+
+.ion-margin-top {
+  margin-top: 20px; /* Adjust the space above the login button */
+}
+
+/* Adjust placeholder text size */
+ion-input::part(native) {
+  font-size: 16px; /* Increase placeholder text size */
+}

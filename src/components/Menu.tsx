@@ -1,99 +1,69 @@
+import React from "react";
 import {
+  IonHeader,
+  IonToolbar,
+  IonTitle,
   IonContent,
-  IonIcon,
+  IonList,
   IonItem,
   IonLabel,
-  IonList,
-  IonListHeader,
-  IonMenu,
-  IonMenuToggle,
-  IonNote,
-} from '@ionic/react';
+  IonIcon,
+  IonButton,
+} from "@ionic/react";
+import {
+  homeOutline,
+  personCircleOutline,
+  libraryOutline,
+  phonePortraitOutline,
+  desktopOutline,
+  businessOutline,
+  menuOutline,
+} from "ionicons/icons";
 
-import { useLocation } from 'react-router-dom';
-import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
-import './Menu.css';
-
-interface AppPage {
-  url: string;
-  iosIcon: string;
-  mdIcon: string;
-  title: string;
+interface MenuProps {
+  onToggleMenu: () => void;
 }
 
-const appPages: AppPage[] = [
-  {
-    title: 'Inbox',
-    url: '/folder/Inbox',
-    iosIcon: mailOutline,
-    mdIcon: mailSharp
-  },
-  {
-    title: 'Outbox',
-    url: '/folder/Outbox',
-    iosIcon: paperPlaneOutline,
-    mdIcon: paperPlaneSharp
-  },
-  {
-    title: 'Favorites',
-    url: '/folder/Favorites',
-    iosIcon: heartOutline,
-    mdIcon: heartSharp
-  },
-  {
-    title: 'Archived',
-    url: '/folder/Archived',
-    iosIcon: archiveOutline,
-    mdIcon: archiveSharp
-  },
-  {
-    title: 'Trash',
-    url: '/folder/Trash',
-    iosIcon: trashOutline,
-    mdIcon: trashSharp
-  },
-  {
-    title: 'Spam',
-    url: '/folder/Spam',
-    iosIcon: warningOutline,
-    mdIcon: warningSharp
-  }
-];
-
-const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-
-const Menu: React.FC = () => {
-  const location = useLocation();
-
+const Menu: React.FC<MenuProps> = ({ onToggleMenu }) => {
   return (
-    <IonMenu contentId="main" type="overlay">
+    <>
+      <IonHeader>
+        <IonToolbar color="danger">
+          <IonTitle>Menu</IonTitle>
+          <IonButton slot="end" fill="clear" onClick={onToggleMenu}>
+            <IonIcon icon={menuOutline} />
+          </IonButton>
+        </IonToolbar>
+      </IonHeader>
       <IonContent>
-        <IonList id="inbox-list">
-          <IonListHeader>Inbox</IonListHeader>
-          <IonNote>hi@ionicframework.com</IonNote>
-          {appPages.map((appPage, index) => {
-            return (
-              <IonMenuToggle key={index} autoHide={false}>
-                <IonItem className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
-                  <IonIcon aria-hidden="true" slot="start" ios={appPage.iosIcon} md={appPage.mdIcon} />
-                  <IonLabel>{appPage.title}</IonLabel>
-                </IonItem>
-              </IonMenuToggle>
-            );
-          })}
-        </IonList>
-
-        <IonList id="labels-list">
-          <IonListHeader>Labels</IonListHeader>
-          {labels.map((label, index) => (
-            <IonItem lines="none" key={index}>
-              <IonIcon aria-hidden="true" slot="start" icon={bookmarkOutline} />
-              <IonLabel>{label}</IonLabel>
-            </IonItem>
-          ))}
+        <IonList>
+          <IonItem button routerLink="/folder/LoginPage">
+            <IonIcon slot="start" icon={personCircleOutline} />
+            <IonLabel>Login</IonLabel>
+          </IonItem>
+          <IonItem button routerLink="/folder/Welcome!">
+            <IonIcon slot="start" icon={homeOutline} />
+            <IonLabel>Home</IonLabel>
+          </IonItem>
+          <IonItem button routerLink="/folder/About">
+            <IonIcon slot="start" icon={libraryOutline} />
+            <IonLabel>About</IonLabel>
+          </IonItem>
+          <IonItem button routerLink="/folder/Contact Us">
+            <IonIcon slot="start" icon={phonePortraitOutline} />
+            <IonLabel>Contact Us</IonLabel>
+          </IonItem>
+          <IonItem button routerLink="/folder/Services">
+            <IonIcon slot="start" icon={desktopOutline} />
+            <IonLabel>Services</IonLabel>
+          </IonItem>
+          <IonItem button routerLink="/folder/Government">
+            <IonIcon slot="start" icon={businessOutline} />
+            <IonLabel>Government Offices</IonLabel>
+          </IonItem>
         </IonList>
       </IonContent>
-    </IonMenu>
+    </>
   );
 };
 
