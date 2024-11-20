@@ -10,9 +10,9 @@ import {
   IonInput,
   IonButton,
   IonText,
-  IonMenu,
+ 
   IonList,
-  IonMenuButton,
+  
   IonButtons,
 } from "@ionic/react";
 import { useHistory } from "react-router-dom";
@@ -29,7 +29,7 @@ const LoginPage: React.FC = () => {
   return (
     <IonPage>
       {/* Side Menu */}
-      <IonMenu side="start" menuId="main-menu" contentId="main-content">
+      {/* <IonMenu side="start" menuId="main-menu" contentId="main-content">
         <IonHeader>
           <IonToolbar color="primary">
             <IonTitle>Menu</IonTitle>
@@ -48,17 +48,17 @@ const LoginPage: React.FC = () => {
             </IonItem>
           </IonList>
         </IonContent>
-      </IonMenu>
+      </IonMenu> */}
 
       {/* Header */}
-      <IonHeader>
+      {/* <IonHeader>
         <IonToolbar color="danger">
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
           <IonTitle>Login Page</IonTitle>
         </IonToolbar>
-      </IonHeader>
+      </IonHeader> */}
 
       {/* Content */}
       <IonContent id="main-content" className="ion-padding">

@@ -37,10 +37,10 @@ const Menu: React.FC<MenuProps> = ({ onToggleMenu }) => {
       </IonHeader>
       <IonContent>
         <IonList>
-          <IonItem button routerLink="/folder/LoginPage">
+          {/* <IonItem button routerLink="/folder/LoginPage">
             <IonIcon slot="start" icon={personCircleOutline} />
             <IonLabel>Login</IonLabel>
-          </IonItem>
+          </IonItem> */}
           <IonItem button routerLink="/folder/Welcome!">
             <IonIcon slot="start" icon={homeOutline} />
             <IonLabel>Home</IonLabel>
